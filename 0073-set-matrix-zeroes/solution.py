@@ -15,9 +15,7 @@ class Solution:
                 ind=fnd[-1]+1
             if(chk==0):
                 matrix[i]=[0]*n
-        print(matrix)
         fnd=set(fnd)
-        print(fnd)
         for i in fnd:
             for j in range(m):
                 print(j,i)
