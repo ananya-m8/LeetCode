@@ -3,17 +3,18 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        l = m+n+1
-        d={}
-        nums2=nums2+nums1[0:m]
-        for i in range(l-1):
-            d[nums2[i]]=d.get(nums2[i],0)+1
-        k=list(d.keys())
-        k.sort()
-        for i in range(1,len(k)):
-
-            d[k[i]]+=d[k[i-1]]
-
-        for i in range(-1,-l,-1):
-            nums1[d[nums2[i]]-1] = nums2[i]
-            d[nums2[i]]-=1
+        i=m-1
+        j=n-1
+        k=m+n-1
+        while(i>=0 and j>=0):
+            if nums1[i]>nums2[j]:
+                nums1[k]=nums1[i]
+                i-=1
+            else:
+                nums1[k]=nums2[j]
+                j-=1
+            k-=1
+        while(j>=0 and k>=0):
+            nums1[k]=nums2[j]
+            k-=1
+            j-=1
