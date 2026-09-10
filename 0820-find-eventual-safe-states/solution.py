@@ -13,7 +13,7 @@ class Solution:
                 que.append(i)
         res=[]
         while que:
-            node=que.pop()
+            node=que.popleft()
             res.append(node)
             for i in rev_g[node]:
                 indegree[i]-=1
